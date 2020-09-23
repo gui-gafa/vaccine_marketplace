@@ -11,3 +11,6 @@ VaccineType.create(name:"Febre Amarela", description: "Vacina para febre amarela
 VaccineType.create(name:"Tríplice Bacteriana (DTP)", description: "Vacina para difteria, tétano e coqueluche, Validade: 5 anos")
 VaccineType.create(name:"Gripe", description: "Vacina para gripe, Validade: 1 ano")
 
+Clinic.create(name:"Zé Gotinha", address: "Rua Roma n° 673, Jardim Augusta, São José dos Campos", user: User.all[1])
+
+
