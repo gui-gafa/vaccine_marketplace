@@ -1,0 +1,19 @@
+<h1>Selecione sua Vacina</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Vacina</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vaccine_types.each do |vaccine_type| %>
+      <tr>
+        <td><%= vaccine_type.name %></td>
+        <td><%= link_to 'Show', vaccine_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
