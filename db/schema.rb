@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_181439) do
+ActiveRecord::Schema.define(version: 2020_09_23_202418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(version: 2020_09_23_181439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_clinics_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.float "unit_price"
+    t.bigint "vaccine_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["vaccine_id"], name: "index_orders_on_vaccine_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.integer "stars"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_reviews_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,5 +64,20 @@ ActiveRecord::Schema.define(version: 2020_09_23_181439) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "vaccines", force: :cascade do |t|
+    t.float "price"
+    t.bigint "vaccine_type_id", null: false
+    t.bigint "clinic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["clinic_id"], name: "index_vaccines_on_clinic_id"
+    t.index ["vaccine_type_id"], name: "index_vaccines_on_vaccine_type_id"
+  end
+
   add_foreign_key "clinics", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "orders", "vaccines"
+  add_foreign_key "reviews", "orders"
+  add_foreign_key "vaccines", "clinics"
+  add_foreign_key "vaccines", "vaccine_types"
 end
