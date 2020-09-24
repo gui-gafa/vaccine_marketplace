@@ -1,19 +1,33 @@
-<h1>Selecione sua Vacina</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'banner_vaccine.jpg' %>')">
+  <div class="banner-content">
+    <h1> Mercado das Vacinas </h1>
+    <p> From children to Adult </p>
+  </div>
+</div>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Vacina</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+<div class="container">
+    <div class="row">
+      <% @vaccine_types.each do |vaccine_type| %>
+        <div class="col-12 col-md-6 col-lg-3">
+           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path randomize_image %>');">
+              <div class="card-description">
+                <h2><%= link_to "#{vaccine_type.name}" , vaccine_type %></h2>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
 
-  <tbody>
-    <% @vaccine_types.each do |vaccine_type| %>
-      <tr>
-        <td><%= vaccine_type.name %></td>
-        <td><%= link_to 'Show', vaccine_type %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Copyright 2020 -  Mercado das Vacinas
+  </div>
+</div>
