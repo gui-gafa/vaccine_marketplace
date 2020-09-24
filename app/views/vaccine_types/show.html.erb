@@ -1,4 +1,11 @@
-<p><%= @vaccine_type.name %></p>
-<p><%= @vaccine_type.description %></p>
+<p>Name: <%= @vaccine_type.name %></p>
+<p>Des<%= @vaccine_type.description %></p>
+
+
+lista de todas as vaccines desse vaccine type
+
+<% @vaccines.each do |vaccine| %>
+  <p>Clinic: <%= vaccine.clinic.name %> | Price: <%= vaccine.price %> | <%= link_to "Comprar", root_path , class: "btn btn-primary" %> </p>
+<% end %>
 
 <%= link_to 'Back', vaccine_types_path %>

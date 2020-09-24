@@ -6,5 +6,6 @@ class VaccineTypesController < ApplicationController
   end
   def show
     @vaccine_type = VaccineType.find(params[:id])
+    @vaccines = Vaccine.where(vaccine_type: @vaccine_type)
   end
 end
