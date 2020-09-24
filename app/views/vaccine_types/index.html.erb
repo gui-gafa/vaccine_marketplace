@@ -10,10 +10,25 @@
 
   <tbody>
     <% @vaccine_types.each do |vaccine_type| %>
-      <tr>
-        <td><%= vaccine_type.name %></td>
-        <td><%= link_to 'Show', vaccine_type %></td>
-      </tr>
-    <% end %>
+  <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2><%= vaccine_type.name %> <i class="fas fa-syringe" style="color:red;"></i></h2>
+     <p><%= link_to 'Show', vaccine_type %></p>
+  </div>
+</div>
+<% end %>
   </tbody>
 </table>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+

@@ -1,4 +1,24 @@
 <p><%= @vaccine_type.name %></p>
 <p><%= @vaccine_type.description %></p>
 
-<%= link_to 'Back', vaccine_types_path %>
+<%= link_to 'Back', vaccine_types_path, class: "btn btn-gradient" %>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= image_path 'vacina.jpg'%>" alt="Imagem de capa do card">
+  <div class="card-body">
+    <h5 class="card-title">Título do card</h5>
+    <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Link do card</a>
+    <a href="#" class="card-link">Outro link</a>
+  </div>
+</div>
+/home/marial/code/gui-gafa/vaccine_marketplace/app/assets/images/zeh_gotinha_logo.jpg
+/home/marial/code/gui-gafa/vaccine_marketplace/app/views/vaccine_types/show.html.erb
+../vaccine_types/views/app/assets/images/vacina.jpg
