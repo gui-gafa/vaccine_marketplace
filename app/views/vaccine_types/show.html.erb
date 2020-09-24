@@ -10,7 +10,8 @@ lista de todas as vaccines desse vaccine type
 
 <%= link_to 'Back', vaccine_types_path, class: "btn btn-gradient" %>
 
-<div class="card" style="width: 18rem;">
+<!-- coloquei na marra o height pra ser 600px pra não ficar em cima do footer, o ideal é ter um estilo de card diferente do index -->
+<div class="card" style="height: 600px;width: 18rem;">
   <img class="card-img-top" src="<%= image_path 'vacina.jpg'%>" alt="Imagem de capa do card">
   <div class="card-body">
     <h5 class="card-title">Título do card</h5>
