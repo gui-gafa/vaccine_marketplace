@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
       <% @vaccine_types.each do |vaccine_type| %>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4">
            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path randomize_image %>');">
               <div class="card-description">
                 <h2><%= link_to "#{vaccine_type.name}" , vaccine_type %></h2>
@@ -20,4 +20,3 @@
   </div>
 
 
-  

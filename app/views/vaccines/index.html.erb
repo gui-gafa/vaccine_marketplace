@@ -1,0 +1,12 @@
+<h2>Vacinas da Clinica <%= current_user.clinic.name %></h2>
+
+
+<% @vaccines.each do |vaccine| %>
+  <p>
+  Nome: <%= vaccine.vaccine_type.name %> | Price: <%= vaccine.price %> |
+  <%= link_to "Edit", root_path , class: "btn btn-primary" %>
+  <%= link_to 'Destroy', vaccine, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+<%= link_to "Nova Vacina", new_vaccine_path , class: "btn btn-primary" %>
