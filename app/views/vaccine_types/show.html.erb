@@ -15,6 +15,7 @@
       <li class="list-group-item">Preço: <%= vaccine.price %> </li>
       <li class="list-group-item">Endereço: <%= vaccine.clinic.address %> </li>
       <li class="list-group-item"><%= link_to "Comprar", root_path , class: "btn btn-primary" %></li>
+      <li class="list-group-item"><%= link_to "Avaliações (#{vaccine.reviews.count})", reviews_path , class: "btn btn-primary" %></li>
     </ul>
   <!--   <div class="card-body">
       <a href="#" class="card-link">Link do card</a>
