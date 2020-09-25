@@ -1,0 +1,9 @@
+<div class="main">
+  <div class="container mt-5 pt-5">
+    <%= simple_form_for([@order.vaccine, @order, @review]) do |f| %>
+      <%= f.input :stars%>
+      <%= f.input :description%>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

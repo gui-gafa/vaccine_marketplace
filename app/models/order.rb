@@ -4,4 +4,8 @@ class Order < ApplicationRecord
   validates :quantity, presence: true, :numericality => { greater_than: 0 }
   validates :unit_price, presence: true
   has_one :review
+
+  def string_price
+    sprintf('R$ %.2f', unit_price)
+  end
 end
