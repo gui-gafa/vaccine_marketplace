@@ -1,15 +1,15 @@
-<h3><strong>Nome:</strong> <%= @vaccine_type.name %></h3>
-<h3><strong>Descrição:</strong><%= @vaccine_type.description %></h3>
+<h3 class="header-text mt-4"><strong><%= @vaccine_type.name %></strong></h3>
+<h4 class="header-text" mb-4><%= @vaccine_type.description %></h4>
 
 
-<h4>Ofertas: </h4>
+<h5 class="mb-3">Ofertas: </h5>
 <div class="cards">
   <% @vaccines.each do |vaccine| %>
   <!-- coloquei na marra o height pra ser 600px pra não ficar em cima do footer, o ideal é ter um estilo de card diferente do index -->
-  <div class="card" style="height: 600px;width: 18rem;">
+  <div class="card" style="height: 550px;width: 18rem;">
     <img class="card-img-top" src="<%= image_path 'vacina.jpg'%>" alt="Imagem de capa do card">
     <div class="card-body">
-      <h5 class="card-title">Clinica: <%= vaccine.clinic.name %></h5>
+      <h6 class="card-title">Clinica: <%= vaccine.clinic.name %></h6>
      </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Preço: <%= vaccine.string_price %> </li>
@@ -25,4 +25,5 @@
 
   <% end %>
 </div>
-<%= link_to 'Back', vaccine_types_path, class: "btn btn-primary" %>
+<br>
+<p class = "text-right"><%= link_to 'Back', vaccine_types_path, class: "btn btn-primary" %></p>

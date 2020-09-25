@@ -14,8 +14,28 @@ User.create(email: "user@user", clinic_owner: false, password: '123456', passwor
 User.create(email: "user2@user2", clinic_owner: false, password: '123456', password_confirmation: '123456')
 
 
+User.create(email: "1@1", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "2@2", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "3@3", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "4@4", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "5@5", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "6@6", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "7@7", clinic_owner: true, password: '123456', password_confirmation: '123456')
+User.create(email: "8@8", clinic_owner: true, password: '123456', password_confirmation: '123456')
+
+
+
 Clinic.create(name:"Zé Gotinha", address: "Rua Roma n° 673, Jardim Augusta, São José dos Campos", user: User.find_by(email:'clinica@clinica'))
-Clinic.create(name:"Postão da esquina", address: "Avenida Wenceslau Escobar, 1086, Tristez, Porto Alegre", user: User.find_by(email:'clinica2@clinica2'))
+
+Clinic.create(name:"Imunolife UNIDADE ED. DR. CRISPIM", address: "SMHN Qd. 02 Ed. Dr. Crispim – salas 605 / 606 Asa Norte Brasilia -DF", user: User.find_by(email:'1@1'))
+Clinic.create(name:"Imunolife UNIDADE LAGO SUL", address: "SHIS QI 15 Ed. Victoria Medical Center sala T-14 A Lago Sul -Brasilia -DF", user: User.find_by(email:'2@2'))
+Clinic.create(name:"Imunocentro ASA NORTE", address: "STN Bloco M Sala 310 - Edifício Vital Brazil - Brasília - DF", user: User.find_by(email:'3@3'))
+Clinic.create(name:"Imunocentro ASA SUL", address: "SEPS 715/915 Bloco D Sala 510 - Centro Clínico Pacini - Brasília - DF", user: User.find_by(email:'4@4'))
+Clinic.create(name:"Prime Vacinas Unidade 01", address: "SMHN Quadra 02. Bloco B. Sala 205. Edifício Cléo Octávio. Asa Norte. Brasília-DF.", user: User.find_by(email:'5@5'))
+Clinic.create(name:"Prime Vacinas Unidade 02", address: "SHLS 716 Conjunto L. Torre II. Sala 22.Centro Clínico Sul. Asa Sul. Brasília-DF.", user: User.find_by(email:'6@6'))
+Clinic.create(name:"Prime Vacinas Filial Águas Claras", address: "Avenida das Araucárias lote 1835 a 2005. Águas Claras Shopping Sala 437. Brasília-DF.", user: User.find_by(email:'7@7'))
+Clinic.create(name:"CLIDIP", address: "SEPS 710/910 Sul - Centro Clínico Via Brasil, Torre B, Sala 536. Brasília, DF.", user: User.find_by(email:'8@8'))
+
 
 VaccineType.create(name:'Vacina BCG', description: 'O que previne:Tuberculose – principalmente as formas graves, como meningite tuberculosa e tuberculose miliar (espalhada pelo corpo).Do que é feita:É composta pelo bacilo de Calmette-Guérin – origem do nome BCG – obtido pela atenuação (enfraquecimento) de uma das bactérias que causam a tuberculose. Completam sua composição o glutamato de sódio e a solução fisiológica (soro a 0,9%).Indicação:A vacina é indicada de rotina a partir do nascimento até antes de a criança completar 5 anos de idade.')
 VaccineType.create(name:'Vacina dengue', description: 'O que previneInfecção causada pelos quatro sorotipos de dengue: DEN1, DEN2, DEN3 e DEN4. A eficácia na prevenção da doença é de 65,5%; na prevenção de dengue grave e hemorrágica é de 93% e de internação é de mais de 80%.Do que é feitaTrata-se de vacina atenuada, composta pelos quatro sorotipos vivos do vírus dengue, obtidos separadamente por tecnologia de DNA recombinante. Contém ainda aminoácidos essenciais (incluindo fenilalanina), aminoácidos não essenciais, cloridrato de arginina, sacarose, trealose di-hidratada, sorbitol, trometamol e ureia. O diluente é constituído por cloreto de sódio e água para injeções. Não contém adjuvantes e conservantes.IndicaçãoA vacina está licenciada para crianças a partir de 9 anos de idade, adolescentes e adultos até 45 anos e é recomendada para indivíduos previamente infectados por um dos vírus da dengue (soropositivos com ou sem história da doença).')
@@ -57,20 +77,20 @@ VaccineType.create(name:'Palivizumabe', description: 'O palivizumabe não é uma
 Vaccine.create(price:300.00, vaccine_type: VaccineType.find_by(name:"Vacina BCG"), clinic: Clinic.find_by(name:"Zé Gotinha"))
 
 
-Vaccine.create(price:300.00, vaccine_type: VaccineType.find_by(name:"Febre Amarela"), clinic: Clinic.find_by(name:"Zé Gotinha"))
-Vaccine.create(price:200.00, vaccine_type: VaccineType.find_by(name:"Tríplice Bacteriana (DTP)"), clinic: Clinic.find_by(name:"Zé Gotinha"))
-Vaccine.create(price:150.00, vaccine_type: VaccineType.find_by(name:"Febre Amarela"), clinic: Clinic.find_by(name:"Postão da esquina"))
-Vaccine.create(price:100.00, vaccine_type: VaccineType.find_by(name:"Tríplice Bacteriana (DTP)"), clinic: Clinic.find_by(name:"Postão da esquina"))
-Vaccine.create(price:50.00, vaccine_type: VaccineType.find_by(name:"Gripe"), clinic: Clinic.find_by(name:"Postão da esquina"))
+Vaccine.create(price:300.00, vaccine_type: VaccineType.find_by(name:"Vacina BCG"), clinic: Clinic.find_by(name:"Zé Gotinha"))
+Vaccine.create(price:200.00, vaccine_type: VaccineType.find_by(name:"Vacina dengue"), clinic: Clinic.find_by(name:"Zé Gotinha"))
+Vaccine.create(price:150.00, vaccine_type: VaccineType.find_by(name:"Vacina BCG"), clinic: Clinic.find_by(name:"CLIDIP"))
+Vaccine.create(price:100.00, vaccine_type: VaccineType.find_by(name:"Vacina dengue"), clinic: Clinic.find_by(name:"CLIDIP"))
+Vaccine.create(price:50.00, vaccine_type: VaccineType.find_by(name:"Vacina gripe (influenza) — trivalente ou quadrivalente"), clinic: Clinic.find_by(name:"CLIDIP"))
 
 Order.create(unit_price: 300.00, quantity: 2,
-             vaccine: Vaccine.find_by( vaccine_type: VaccineType.find_by(name:"Febre Amarela"), 
+             vaccine: Vaccine.find_by( vaccine_type: VaccineType.find_by(name:"Vacina BCG"), 
                                        clinic: Clinic.find_by(name:"Zé Gotinha")), user: User.find_by(email: "user@user"))
 Order.create(unit_price: 50.00,  quantity: 3,
-             vaccine: Vaccine.find_by( vaccine_type: VaccineType.find_by(name:"Gripe"), 
-                                       clinic: Clinic.find_by(name:"Postão da esquina")), user: User.find_by(email: "user2@user2"))
+             vaccine: Vaccine.find_by( vaccine_type: VaccineType.find_by(name:"Vacina gripe (influenza) — trivalente ou quadrivalente"), 
+                                       clinic: Clinic.find_by(name:"CLIDIP")), user: User.find_by(email: "user2@user2"))
 
 Review.create(description: " Nem doeu. ", stars: 5, order: Order.first)
 Review.create(description: " Aplicação profissional. ", stars: 5, order: Order.first)
-Review.create(description: " Doeu um pouco, mas é uma ótima clinica. ", stars: 3, order: Order.first)
-Review.create(description: " Horrível. Não se vacine no Postão da esqunina. ", stars: 0, order: Order.all[1])
+Review.create(description: " Horrível. Não se vacine nessa clínica. ", stars: 0, order: Order.first)
+Review.create(description: " Doeu um pouco, mas é uma ótima clinica. ", stars: 3, order: Order.all[1])
