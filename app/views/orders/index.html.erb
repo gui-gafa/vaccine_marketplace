@@ -1,0 +1,39 @@
+  <div>
+    <h1 style="text-align: center;">Meus Pedidos</h1>
+  </div>
+  <div>
+    <table class='table'>
+      <thead>
+        <tr>
+          <% ["Data", "Vacina", "Clinica", "Quantidade", "Preço", ""].each do |header| %>
+            <th> <%= header %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order|%>
+          <tr>
+            <td>
+              <%= order.created_at.strftime("%d/%m/%Y")  %>
+            </td>
+            <td>
+              <%= order.vaccine.vaccine_type.name  %>
+            </td>
+            <td>
+              <%= order.vaccine.clinic.name  %>
+            </td>
+            <td>
+              <%= order.quantity %>
+            </td>
+            <td>
+              <%= order.string_price  %>
+            </td>
+            <td>
+              <%= link_to "Detalhes", order_path(order), class: "btn btn-primary"  %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+

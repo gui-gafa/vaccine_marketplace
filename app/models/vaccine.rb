@@ -5,4 +5,8 @@ class Vaccine < ApplicationRecord
   has_many :orders
   has_many :reviews, through: :orders
   validates :vaccine_type, uniqueness: { scope: :clinic }
+
+  def string_price
+    sprintf('R$ %.2f', price)
+  end
 end

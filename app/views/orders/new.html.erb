@@ -1,0 +1,16 @@
+<h1>Novo Pedido</h1>
+Resumo:
+Vacina: <%= @vaccine.vaccine_type.name %>
+Clínica: <%= @vaccine.clinic %>
+Preço da Unidade: <%= @vaccine.price %>
+
+<div class="main">
+  <div class="container mt-5 pt-5">
+    <%= simple_form_for([@vaccine, @order]) do |f| %>
+      <%= f.input :quantity%>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back', @vaccine %>
