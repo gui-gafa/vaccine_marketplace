@@ -1,8 +1,8 @@
 <h3 class="header-text mt-4"><strong><%= @vaccine_type.name %></strong></h3>
-<h4 class="header-text" mb-4><%= @vaccine_type.description %></h4>
+<h4 class="header-text text-left" mb-4><%= @vaccine_type.description %></h4>
 
 
-<h5 class="mb-3">Ofertas: </h5>
+
 <div class="cards">
   <% @vaccines.each do |vaccine| %>
   <!-- coloquei na marra o height pra ser 600px pra não ficar em cima do footer, o ideal é ter um estilo de card diferente do index -->
@@ -21,9 +21,11 @@
       <a href="#" class="card-link">Link do card</a>
       <a href="#" class="card-link">Outro link</a>
     </div> -->
+  
   </div>
-
   <% end %>
+
+  
 </div>
 <br>
-<p class = "text-right"><%= link_to 'Back', vaccine_types_path, class: "btn btn-primary" %></p>
+<p class = "voltar text-right mr-4"><%= link_to 'Voltar', vaccine_types_path, class: "btn btn-primary" %></p>
