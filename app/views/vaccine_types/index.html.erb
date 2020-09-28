@@ -5,6 +5,21 @@
   </div>
 </div>
 
+<div class="search_title">
+  Encontre sua Vacina:
+</div>
+
+<%= form_tag vaccine_types_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Ex: Febre Amarela, BGC, Gripe ..."
+  %>
+  <div class="d-flex my-3">
+    <%= submit_tag "Pesquisa", class: "btn btn-primary m-auto" %>
+  </div>
+<% end %>
+
 <div class="container">
     <div class="row">
       <% @vaccine_types.each do |vaccine_type| %>

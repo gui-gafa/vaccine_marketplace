@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+    @reviews = Review.joins(:order).where("orders.vaccine_id = ?", params[:vaccine_id])
   end
 
   def new
@@ -23,5 +23,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(%i[stars description])
   end
-
 end

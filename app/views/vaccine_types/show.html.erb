@@ -1,5 +1,16 @@
 <h3 class="header-text mt-4"><strong><%= @vaccine_type.name %></strong></h3>
-<h4 class="header-text text-left" mb-4><%= @vaccine_type.description %></h4>
+<!-- style="white-space: pre-line;" -->
+<!-- como tirar o espaço a mais que fica antes dos 3... -->
+<h5 class="header-text text-left mb-4">
+  <% if @vaccine_type.normalize_description.size< 50 %>
+    <span style="white-space: pre-line;"><%=@vaccine_type.normalize_description%> </span>
+  <% else %>
+    <span style="white-space: pre-line;" ><%=@vaccine_type.normalize_description[0..250]%></span>
+    <span style="margin: 0;" id="pontos">...</span>
+    <span style="white-space: pre-line;" id="mais"><%=@vaccine_type.normalize_description[251..-1]%></span>
+  <% end %>
+</h5>
+<a href = "" id='btnLeiaMais'>Leia Mais</a>
 
 
 
@@ -9,23 +20,25 @@
   <div class="card" style="height: 550px;width: 18rem;">
     <img class="card-img-top" src="<%= image_path 'vacina.jpg'%>" alt="Imagem de capa do card">
     <div class="card-body">
-      <h6 class="card-title">Clinica: <%= vaccine.clinic.name %></h6>
+      <h6 class="card-title">Clínica: <%= vaccine.clinic.name %></h6>
      </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Preço: <%= vaccine.string_price %> </li>
       <li class="list-group-item">Endereço: <%= vaccine.clinic.address %> </li>
       <li class="list-group-item"><%= link_to "Comprar", new_vaccine_order_path(vaccine) , class: "btn btn-primary" %></li>
-      <li class="list-group-item"><%= link_to "Avaliações (#{vaccine.reviews.count})", reviews_path , class: "btn btn-primary" %></li>
+      <li class="list-group-item"><%= link_to "Avaliações (#{vaccine.reviews.count})", vaccine_reviews_path(vaccine) , class: "btn btn-primary" %></li>
     </ul>
   <!--   <div class="card-body">
       <a href="#" class="card-link">Link do card</a>
       <a href="#" class="card-link">Outro link</a>
     </div> -->
-  
+
   </div>
   <% end %>
 
-  
+
 </div>
 <br>
 <p class = "voltar text-right mr-4"><%= link_to 'Voltar', vaccine_types_path, class: "btn btn-primary" %></p>
+
+<%= javascript_pack_tag 'read_more' %>
