@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @reviews = Review.joins(:order).where("orders.vaccine_id = ?", params[:vaccine_id])
   end

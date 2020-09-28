@@ -1,9 +1,12 @@
 <div class="main">
-  <div class="container mt-5 pt-5">
+  <div class="container mt-1 pt-1">
     <%= simple_form_for([@order.vaccine, @order, @review]) do |f| %>
-      <%= f.input :stars%>
-      <%= f.input :description%>
-      <%= f.submit %>
+      <%= f.input :stars, label: "Classificação (0-5)"%>
+      <%= f.input :description, label: "Sua Opinião"%>
+      <span class='d-flex' style="justify-content: space-between;">
+        <%= f.button :submit, value: "Criar", class: "btn btn-primary" %>
+        <%= link_to "Voltar", orders_path, class: "btn btn-primary" %>
+      </span>
     <% end %>
   </div>
 </div>
