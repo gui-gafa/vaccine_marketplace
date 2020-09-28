@@ -1,12 +1,17 @@
 <div class="container pt-3">
-  <div class="row justify-content-center">
+  <div class="row ">
     <div class="col-12 col-md-6 col-lg-4">
+      <h4 class="h4-eval"> Avaliações </h4>
+      <h5 class="h5-eval"> Clínica: <%= @reviews.first.order.vaccine.clinic.name %> </h5>
+      <h5 class="h5-eval"> Vacina: <%= @reviews.first.order.vaccine.vaccine_type.name %> </h5>
+    </div>
+  </div>
+</div>
 
-      <h3 class="text-center mb-2 font-weight-bold"> Avaliações </h3>
-      <h4 class="text-center mb-2"> <%= @reviews.first.order.vaccine.clinic.name %> </h4>
-      <h4 class="text-center mb-2"> Vacina: <%= @reviews.first.order.vaccine.vaccine_type.name %> </h4>
-
+  <div class="container">
+  <div class="row">
         <% @reviews.each do |review| %>
+        <div class = "col-12 col-md-6 col-lg-4">
           <div class = "card p-3 mb-3">
             <p class >
               <strong> Usuário: <%= review.order.user.email %> </strong>
@@ -14,10 +19,9 @@
             <p class>
               <small>Descrição: <%= review.description %> </small>
             </p>
-              <span class> Stars: <%= review.stars %> </span>
+              <span class="span"> Stars: <%= review.stars %> </span>
           </div>
+        </div>
         <% end %>
+      </div>
     </div>
-  </div>
-</div>
-
