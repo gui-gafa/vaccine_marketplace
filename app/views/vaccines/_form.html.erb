@@ -1,16 +1,22 @@
-<%= simple_form_for(@vaccine) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div style="width: 700px;margin:0 auto;">
+  <h1>Nova Vacina</h1>
+  <%= simple_form_for(@vaccine) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.association :vaccine_type, collection: VaccineType.all%>
-  </div>
+    <div class="form-inputs">
+      <%= f.association :vaccine_type, label: 'Vacina', collection: VaccineType.all%>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :price %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :price, label: 'Preço'  %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+    <span class='d-flex' style="justify-content: space-between;">
+      <%= f.button :submit, value: 'Criar Oferta', class: 'btn btn-primary' %>
+      <%= link_to 'Voltar', vaccines_path, class: 'btn btn-primary mr-0' %>
+    </span>
+    </div>
+  <% end %>
+</div>

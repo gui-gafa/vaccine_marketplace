@@ -1,16 +1,26 @@
-<h1>Novo Pedido</h1>
-Resumo:
-Vacina: <%= @vaccine.vaccine_type.name %>
-Clínica: <%= @vaccine.clinic %>
-Preço da Unidade: <%= @vaccine.price %>
 
-<div class="main">
-  <div class="container mt-5 pt-5">
-    <%= simple_form_for([@vaccine, @order]) do |f| %>
-      <%= f.input :quantity%>
-      <%= f.submit %>
-    <% end %>
+<div style="width: 700px;margin:0 auto;">
+  <h3 class='header-text mt-4'><strong>Novo Pedido</strong></h3>
+  <div class="card-product my-4">
+    <img src="<%= image_path 'vacina.jpg'%>" alt="Imagem da vacina">
+    <div class="card-product-infos">
+      <h2><%= @vaccine.vaccine_type.name %></h2>
+      <p>Clínica <%= @vaccine.clinic.name %> | <strong> Preço da Unidade: <%= @vaccine.string_price %></strong></p>
+    </div>
   </div>
-</div>
+  <%= simple_form_for([@vaccine, @order]) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= link_to 'Back', @vaccine %>
+    <div class="form-inputs">
+      <%= f.input :quantity, label: 'Quantidade'  %>
+    </div>
+
+    <div class="form-actions">
+    <span class='d-flex' style="justify-content: space-between;">
+      <%= f.button :submit, value: 'Criar', class: 'btn btn-primary' %>
+      <%= link_to 'Voltar', @vaccine.vaccine_type, class: 'btn btn-primary mr-0' %>
+    </span>
+    </div>
+  <% end %>
+</div>

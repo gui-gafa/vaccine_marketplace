@@ -1,27 +1,34 @@
-<div class="container pt-3">
-  <div class="row ">
-    <div class="col-12 col-md-6 col-lg-4">
-      <h4 class="h4-eval"> Avaliações </h4>
-      <h5 class="h5-eval"> Clínica: <%= @reviews.first.order.vaccine.clinic.name %> </h5>
-      <h5 class="h5-eval"> Vacina: <%= @reviews.first.order.vaccine.vaccine_type.name %> </h5>
-    </div>
+<% if @reviews.empty? %>
+  <div class="container pt-3">
+    <h4 class="h4-eval text-center"> Sem Avaliações para essa Vacina</h4>
   </div>
-</div>
-
-  <div class="container">
-  <div class="row">
-        <% @reviews.each do |review| %>
-        <div class = "col-12 col-md-6 col-lg-4">
-          <div class = "card p-3 mb-3">
-            <p class >
-              <strong> Usuário: <%= review.order.user.email %> </strong>
-            </p>
-            <p class>
-              <small>Descrição: <%= review.description %> </small>
-            </p>
-              <span class="span"> Stars: <%= review.stars %> </span>
-          </div>
-        </div>
-        <% end %>
+  <div style="display: flex; justify-content: center"><%= image_tag "oops.png", class: 'warning_image' %></div>
+<% else %>
+  <div class="container pt-3">
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-4">
+        <h4 class="h4-eval"> Avaliações </h4>
+        <h5 class="h5-eval"> Clínica: <%= @reviews.first.order.vaccine.clinic.name %> </h5>
+        <h5 class="h5-eval"> Vacina: <%= @reviews.first.order.vaccine.vaccine_type.name %> </h5>
       </div>
     </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+          <% @reviews.each do |review| %>
+          <div class = "col-12 col-md-6 col-lg-4">
+            <div class = "card p-3 mb-3">
+              <p class >
+                <strong> Usuário: <%= review.order.user.email %> </strong>
+              </p>
+              <p class>
+                <small>Descrição: <%= review.description %> </small>
+              </p>
+                <span class="span"> Stars: <%= review.stars %> </span>
+            </div>
+          </div>
+          <% end %>
+    </div>
+  </div>
+<% end %>
