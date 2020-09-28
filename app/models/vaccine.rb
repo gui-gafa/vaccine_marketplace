@@ -7,6 +7,6 @@ class Vaccine < ApplicationRecord
   validates :vaccine_type, uniqueness: { scope: :clinic }
 
   def string_price
-    sprintf('R$ %.2f', price)
+    sprintf('R$ %.2f', price).gsub('.', ',')
   end
 end

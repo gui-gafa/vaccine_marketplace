@@ -6,6 +6,6 @@ class Order < ApplicationRecord
   has_one :review
 
   def string_price
-    sprintf('R$ %.2f', unit_price)
+    sprintf('R$ %.2f', unit_price).gsub('.', ',')
   end
 end

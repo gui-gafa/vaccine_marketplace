@@ -5,19 +5,33 @@
   </div>
 </div>
 
+<div class="search_title">
+  Encontre sua Vacina:
+</div>
+
+<%= form_tag vaccine_types_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Ex: Febre Amarela, BGC, Gripe ..."
+  %>
+  <div class="d-flex my-3">
+    <%= submit_tag "Pesquisa", class: "btn btn-primary m-auto" %>
+  </div>
+<% end %>
+
 <div class="container">
     <div class="row">
       <% @vaccine_types.each do |vaccine_type| %>
         <div class="col-12 col-md-6 col-lg-4">
-           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path randomize_image %>');">
+          <%= link_to vaccine_type do %>
+           <div class="index_card" style="background-image: url('<%= image_path randomize_image %>');">
               <div class="card-description">
-                <h2><%= link_to "#{vaccine_type.name}" , vaccine_type %></h2>
+                <h2><%= vaccine_type.name %></h2>
               </div>
             </div>
           </div>
+          <% end %>
       <% end %>
     </div>
   </div>
-
-
-<p class = "text-right mr-4"><%= link_to "primeira compra" , order_path(Order.first), class:"btn btn-primary" %></p>
