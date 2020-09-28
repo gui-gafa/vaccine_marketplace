@@ -1,8 +1,8 @@
 <% if @reviews.empty? %>
   <div class="container pt-3">
     <h4 class="h4-eval text-center"> Sem Avaliações para essa Vacina</h4>
-    <%= image_tag "oops.png", class: "warning_image" %>
   </div>
+  <div style="display: flex; justify-content: center"><%= image_tag "oops.png", class: 'warning_image' %></div>
 <% else %>
   <div class="container pt-3">
     <div class="row ">
