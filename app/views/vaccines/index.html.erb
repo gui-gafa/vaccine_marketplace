@@ -1,12 +1,44 @@
-<h2>Vacinas da Clinica <%= current_user.clinic.name %></h2>
+<h2 class='my-3'>Vacinas da Clinica <%= current_user.clinic.name %></h2>
+<div>
+    <table class='table'>
+      <thead>
+        <tr>
+          <% ["Nome", "Preço", "", ""].each do |header| %>
+            <th> <%= header %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vaccines.each do |vaccine|%>
+          <tr>
+            <td>
+              <%= vaccine.vaccine_type.name %>
+            </td>
+            <td>
+              <%= vaccine.string_price %>
+            </td>
+            <td>
+              <%= link_to "Editar", root_path%>
+            </td>
+            <td>
+              <%= link_to 'Deletar', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+          <tr>
+            <td>
+              <%= link_to "Nova Vacina", new_vaccine_path , class: "btn btn-primary" %>
+            </td>
+            <td>
 
+            </td>
+            <td>
 
-<% @vaccines.each do |vaccine| %>
-  <p>
-  Nome: <%= vaccine.vaccine_type.name %> | Price: <%= vaccine.price %> |
-  <%= link_to "Edit", root_path , class: "btn btn-primary" %>
-  <%= link_to 'Destroy', vaccine, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-  </p>
-<% end %>
-
-<%= link_to "Nova Vacina", new_vaccine_path , class: "btn btn-primary" %>
+            </td>
+            <td>
+              <%= link_to 'Voltar', vaccines_path, class: 'btn btn-primary mr-0' %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
