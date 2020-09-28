@@ -5,7 +5,7 @@
     <table class='table'>
       <thead>
         <tr>
-          <% ["Data", "Vacina", "Clinica", "Quantidade", "Preço", ""].each do |header| %>
+          <% ["Data", "Vacina", "Clinica", "Quantidade", "Preço Unitário", "Preço Total", ""].each do |header| %>
             <th> <%= header %></th>
           <% end %>
         </tr>
@@ -27,6 +27,9 @@
             </td>
             <td>
               <%= order.string_price  %>
+            </td>
+            <td>
+              <%= order.string_total_price  %>
             </td>
             <td>
               <%= link_to "Detalhes", order_path(order), class: "btn btn-primary"  %>

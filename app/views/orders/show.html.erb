@@ -1,7 +1,8 @@
+<h3 class="header-text my-4"><strong>Seu Pedido</strong></h3>
 <table class='table'>
   <thead>
     <tr>
-      <% ["Data", "Vacina", "Clinica", "Quantidade", "Preço"].each do |header| %>
+      <% ["Data", "Vacina", "Clinica", "Quantidade", "Preço Unitário", "Preço Total"].each do |header| %>
         <th> <%= header %></th>
       <% end %>
     </tr>
@@ -23,13 +24,16 @@
         <td>
           <%= @order.string_price  %>
         </td>
+        <td>
+          <%= @order.string_total_price  %>
+        </td>
       </tr>
   </tbody>
 </table>
 
 <div class="review">
   <% if @order.review && @order.review.id %>
-    <h2>Sua avaliação:</h2>
+    <h3 class="header-text mt-4"><strong>Sua Avaliação</strong></h3>
     <div class='container' style="width: 600px;">
       <table class="table">
         <thead>
@@ -60,9 +64,7 @@
       </table>
     </div>
   <% else %>
-    <h2>Deixe sua avaliação:</h2>
+    <h3 class="header-text mt-5"><strong>Deixe sua Avaliação</strong></h3>
     <%= render "reviews/new" %>
   <% end %>
 </div>
-
-<%= link_to "Voltar", orders_path, class: "btn btn-primary" %>

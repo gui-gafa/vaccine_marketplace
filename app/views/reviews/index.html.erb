@@ -2,12 +2,12 @@
   <div class="container pt-3">
     <h4 class="h4-eval text-center"> Sem Avaliações para essa Vacina</h4>
   </div>
-  <div style="display: flex; justify-content: center"><%= image_tag "oops.png", class: 'warning_image' %></div>
+  <div style="display: flex; justify-content: center"><%= image_tag "oops2.png", class: 'warning_image mt-2' %></div>
 <% else %>
   <div class="container pt-3">
+    <h3 class="header-text my-4"><strong>Avaliações</strong></h3>
     <div class="row ">
-      <div class="col-12 col-md-6 col-lg-4">
-        <h4 class="h4-eval"> Avaliações </h4>
+      <div class="col-12 col-md-6 col-lg-4 ml-3">
         <h5 class="h5-eval"> Clínica: <%= @reviews.first.order.vaccine.clinic.name %> </h5>
         <h5 class="h5-eval"> Vacina: <%= @reviews.first.order.vaccine.vaccine_type.name %> </h5>
       </div>
@@ -25,10 +25,18 @@
               <p class>
                 <small>Descrição: <%= review.description %> </small>
               </p>
-                <span class="span"> Stars: <%= review.stars %> </span>
+                <span class="span">
+                  <% review.stars.times do  %>
+                   <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5-review.stars).times do  %>
+                   <i class="far fa-star"></i>
+                  <% end %>
+                </span>
             </div>
           </div>
           <% end %>
     </div>
   </div>
 <% end %>
+<p class = "voltar text-right mr-4"><%= link_to 'Voltar', @vaccine.vaccine_type, class: "btn btn-primary" %></p>

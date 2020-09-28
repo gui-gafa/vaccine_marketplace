@@ -8,4 +8,8 @@ class Order < ApplicationRecord
   def string_price
     sprintf('R$ %.2f', unit_price).gsub('.', ',')
   end
+
+  def string_total_price
+    sprintf('R$ %.2f', unit_price * quantity).gsub('.', ',')
+  end
 end

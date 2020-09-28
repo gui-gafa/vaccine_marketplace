@@ -7,6 +7,7 @@
 @import "banner";
 @import "card";
 @import "footer";
+@import 'image';
 
 .h4-eval{
 color: #03045e;
@@ -23,8 +24,10 @@ opacity: 0.8;
 }
 
 .span{
-  color: white;
+  position: absolute;
+  bottom: 15px;
+  color: #0470dc;
   font-weight: bolder;
-  background: #0470dc;
+  background: white;
   text-align: center;
 }
